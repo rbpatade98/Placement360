@@ -5,6 +5,9 @@ import Home from "@/routes/home";
 import SigninPage from "@/routes/signin";
 import SignupPage from "@/routes/signup";
 import Dashboard from "@/routes/dashboard";
+import About from "@/routes/about";
+import Contact from "@/routes/contact";
+import Services from "@/routes/services";
 import {MainLayout} from "./components/layouts/MainLayout";
 
 export default function App() {
@@ -14,6 +17,9 @@ export default function App() {
         {/* public Routes */}
         <Route element={<MainLayout />}>
           <Route index element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/services" element={<Services />} />
         </Route>
 
         {/* Authentication layouts */}

@@ -11,6 +11,15 @@ if (!PUBLISHABLE_KEY) {
   throw new Error("Missing Publishable Key")
 }
 
+// Suppress the Clerk development mode warning in the console
+const originalConsoleWarn = console.warn;
+console.warn = (...args) => {
+  if (typeof args[0] === "string" && args[0].includes("Clerk has been loaded with development keys")) {
+    return;
+  }
+  originalConsoleWarn(...args);
+};
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
