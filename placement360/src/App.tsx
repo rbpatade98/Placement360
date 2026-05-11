@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import AuthenticationLayout from "@/components/layouts/AuthLayout";
-import ProtectedRoutes from "@/components/layouts/ProtetedRoutes";
+import ProtectedRoutes from "@/components/layouts/ProtectedRoutes";
 import Home from "@/routes/home";
 import SigninPage from "@/routes/signin";
 import SignupPage from "@/routes/signup";
@@ -9,10 +9,12 @@ import About from "@/routes/about";
 import Contact from "@/routes/contact";
 import Services from "@/routes/services";
 import {MainLayout} from "./components/layouts/MainLayout";
+import AuthHandler from "@/Handlers/AuthHandler";
 
 export default function App() {
   return (
     <Router>
+      <AuthHandler />
       <Routes>
         {/* public Routes */}
         <Route element={<MainLayout />}>
