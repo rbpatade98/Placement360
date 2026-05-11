@@ -8,7 +8,7 @@ import Dashboard from "@/routes/dashboard";
 import About from "@/routes/about";
 import Contact from "@/routes/contact";
 import Services from "@/routes/services";
-import {MainLayout} from "./components/layouts/MainLayout";
+import MainLayout from "./components/layouts/MainLayout";
 import AuthHandler from "@/Handlers/AuthHandler";
 
 export default function App() {

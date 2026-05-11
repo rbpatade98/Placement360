@@ -1,9 +1,13 @@
 import { Outlet } from "react-router";
 import Header from "@/components/ui/Header";
-import Footer from "@/components/ui/footer";
-import { Container } from "@/components/ui/container";
+import Footer from "@/components/ui/Footer";
+import { Container } from "@/components/container";
 
-export const MainLayout = () => {
+console.log("Header:", Header);
+console.log("Footer:", Footer);
+console.log("Container ML:", Container);
+
+const MainLayout = () => {
   return (
     <div className="w-full min-h-screen flex flex-col">
       <Header />
@@ -16,3 +20,5 @@ export const MainLayout = () => {
     </div>
   )
 }
+
+export default MainLayout;
