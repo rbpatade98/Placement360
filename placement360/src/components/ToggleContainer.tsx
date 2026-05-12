@@ -1,8 +1,8 @@
 import { Menu } from "lucide-react";
 import { Link } from "react-router";
 import { SignedOut } from "@clerk/clerk-react";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/Button";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/Sheet";
 import LogoContainer from "@/components/LogoContainer";
 import NavigationRoutes from "./NavigationRoutes";
 

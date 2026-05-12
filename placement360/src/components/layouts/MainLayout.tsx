@@ -1,11 +1,8 @@
 import { Outlet } from "react-router";
-import Header from "@/components/ui/Header";
-import Footer from "@/components/ui/Footer";
-import { Container } from "@/components/container";
+import Header from "../ui/Header";
+import Footer from "../ui/Footer";
+import { Container } from "../Container";
 
-console.log("Header:", Header);
-console.log("Footer:", Footer);
-console.log("Container ML:", Container);
 
 const MainLayout = () => {
   return (

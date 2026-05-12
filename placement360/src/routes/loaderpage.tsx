@@ -1,10 +1,14 @@
+import { Loader2 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-const LoaderPage = ({ className }: { className?: string }) => {
-  return (
-    <div className={className + " w-full h-screen flex items-center justify-center"}>
-      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-    </div>
-  )
+interface LoaderPageProps {
+  className?: string;
 }
 
-export default LoaderPage;
+export const LoaderPage = ({ className }: LoaderPageProps) => {
+  return (
+    <div className={cn("flex items-center justify-center min-h-[400px]", className)}>
+      <Loader2 className="h-10 w-10 animate-spin text-primary" />
+    </div>
+  );
+};

@@ -1,6 +1,6 @@
 import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
 import { Link } from "react-router";
-import { Button } from "@/components/ui/button";
+import { Button } from "./ui/Button";
 
 const ProfileContainer = () => {
   return (

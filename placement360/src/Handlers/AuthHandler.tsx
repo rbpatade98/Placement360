@@ -1,5 +1,5 @@
 import { db } from "@/config/firebase.config";
-import LoaderPage from "@/routes/loaderpage";
+import { LoaderPage } from "@/routes/LoaderPage";
 import type { User } from "@/types";
 import { useAuth, useUser } from "@clerk/clerk-react";
 import { doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";

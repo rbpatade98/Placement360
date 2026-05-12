@@ -1,11 +1,11 @@
 import { SignedIn, SignedOut } from "@clerk/clerk-react";
 import { Link } from "react-router";
-import { Button } from "@/components/ui/button";
+import { Button } from "../components/ui/Button";
 import { Sparkles } from "lucide-react";
 import Marquee from "react-fast-marquee";
 
-import { Container } from "@/components/container";
-import { MarqueImg } from "@/components/marquee-img";
+import { Container } from "../components/Container";
+import { MarqueImg } from "../components/MarqueeImg";
 
 const Home = () => {
   // Safe Marquee component
