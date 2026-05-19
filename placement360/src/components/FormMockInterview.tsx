@@ -51,11 +51,17 @@ const formSchema = z.object({
     .max(10, "Questions count must be 10 or less"),
 });
 
-type FormData = z.infer<typeof formSchema>;
+type FormData = {
+  position: string;
+  description: string;
+  experience: number;
+  techStack: string;
+  questionsCount: number;
+};
 
 export const FormMockInterview = ({ initialData }: FormMockInterviewProps) => {
   const form = useForm<FormData>({
-    resolver:zodResolver(formSchema),
+    resolver: zodResolver(formSchema as any),
     defaultValues: {
       position: initialData?.position || "",
       description: initialData?.description || "",

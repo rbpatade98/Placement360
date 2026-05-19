@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "./ui/Button";
 import Webcam from "react-webcam";
-import { Mic, StopCircle, Video, VideoOff, Activity, ChevronRight, Save, RefreshCw, Loader } from "lucide-react";
+import { Mic, StopCircle, Video, VideoOff, Activity, Save, RefreshCw, Loader } from "lucide-react";
 import { toast } from "sonner";
 import { chatSession } from "@/scripts";
 import { db } from "@/config/firebase.config";

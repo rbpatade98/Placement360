@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { TooltipButton } from "./tooltip-button";
-import { Volume2, VolumeX, CheckCircle2, ChevronRight, LayoutGrid } from "lucide-react";
+import { Volume2, VolumeX, CheckCircle2, LayoutGrid } from "lucide-react";
 import { RecordAnswer } from "./record-answer";
 
 interface QuestionSectionProps {

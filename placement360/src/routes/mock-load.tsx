@@ -6,16 +6,15 @@ import { Link, useNavigate, useParams } from "react-router";
 import { LoaderPage } from "./LoaderPage";
 import { CustomBreadCrumb } from "../components/CustomBreadCrumb";
 import { Button } from "../components/ui/Button";
-import { Lightbulb, Sparkles, WebcamIcon } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { InterviewPin } from "../components/Pin";
-import { Alert, AlertDescription, AlertTitle } from "../components/ui/Alert";
-import WebCam from "react-webcam";
+
 
 export const MockLoadPage = () => {
   const { interviewId } = useParams<{ interviewId: string }>();
   const [interview, setInterview] = useState<Interview | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [isWebCamEnabled, setIsWebCamEnabled] = useState(false);
+
 
   const navigate = useNavigate();
 
