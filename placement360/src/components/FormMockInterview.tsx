@@ -1,9 +1,7 @@
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm } from "react-hook-form";
-
 import type { Interview } from "@/types";
-
 import { CustomBreadCrumb } from "@/components/CustomBreadCrumb";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
@@ -11,8 +9,8 @@ import { useAuth } from "@clerk/clerk-react";
 import { toast } from "sonner";
 import { Headings } from "@/components/Headings";
 import { Button } from "@/components/ui/Button";
-import { Loader, Trash2 } from "lucide-react";
 import { Separator } from "@/components/ui/Separator";
+import { Trash2, Loader } from "lucide-react";
 import {
   FormControl,
   FormField,
@@ -47,18 +45,23 @@ const formSchema = z.object({
     .number()
     .min(0, "Experience cannot be empty or negative"),
   techStack: z.string().min(1, "Tech stack must be at least a character"),
+  questionsCount: z.coerce
+    .number()
+    .min(1, "Questions count must be at least 1")
+    .max(10, "Questions count must be 10 or less"),
 });
 
 type FormData = z.infer<typeof formSchema>;
 
 export const FormMockInterview = ({ initialData }: FormMockInterviewProps) => {
   const form = useForm<FormData>({
-    resolver: zodResolver(formSchema),
+    resolver:zodResolver(formSchema),
     defaultValues: {
       position: initialData?.position || "",
       description: initialData?.description || "",
       experience: initialData?.experience || 0,
       techStack: initialData?.techStack || "",
+      questionsCount: initialData?.questionsCount || 5,
     },
   });
 
@@ -96,7 +99,7 @@ export const FormMockInterview = ({ initialData }: FormMockInterviewProps) => {
 
   const generateAiResponse = async (data: FormData) => {
     const prompt = `
-        As an experienced prompt engineer, generate a JSON array containing 5 technical interview questions along with detailed answers based on the following job information. Each object in the array should have the fields "question" and "answer", formatted as follows:
+        As an experienced prompt engineer, generate a JSON array containing ${data?.questionsCount} technical interview questions along with short, concise answers (strictly 1-2 sentences each) based on the following job information. Each object in the array should have the fields "question" and "answer", formatted as follows:
 
         [
           { "question": "<Question text>", "answer": "<Answer text>" },
@@ -177,6 +180,7 @@ export const FormMockInterview = ({ initialData }: FormMockInterviewProps) => {
         description: initialData.description,
         experience: initialData.experience,
         techStack: initialData.techStack,
+        questionsCount: initialData.questionsCount || 5,
       });
     }
   }, [initialData, form]);
@@ -293,6 +297,29 @@ export const FormMockInterview = ({ initialData }: FormMockInterviewProps) => {
                     className="h-12"
                     disabled={loading}
                     placeholder="eg:- React, Typescript..."
+                    {...field}
+                    value={field.value || ""}
+                  />
+                </FormControl>
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="questionsCount"
+            render={({ field }) => (
+              <FormItem className="w-full space-y-4">
+                <div className="w-full flex items-center justify-between">
+                  <FormLabel>Number of Questions</FormLabel>
+                  <FormMessage className="text-sm" />
+                </div>
+                <FormControl>
+                  <Input
+                    type="number"
+                    className="h-12"
+                    disabled={loading}
+                    placeholder="eg:- 5"
                     {...field}
                     value={field.value || ""}
                   />

@@ -96,7 +96,7 @@ export const InterviewPin = ({
               content="Start Interview"
               buttonVariant={"ghost"}
               onClick={() => navigate(`/generate/interview/${interview?.id}`, { replace: true })}
-              disbaled={false}
+              disabled={false}
               buttonClassName="h-8 w-8 hover:bg-emerald-50 hover:text-emerald-600 rounded-full"
               icon={<Sparkles className="h-4 w-4" />}
               loading={false}
